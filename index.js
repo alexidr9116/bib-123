@@ -6,6 +6,7 @@ const Person = require("./Models/TestModel");
 const commonRoutes = require("./Routes/CommonRoutes");
 const adminRoutes = require("./Routes/AdminRoutes");
 const categoryRoutes = require("./Routes/CategoryRoutes");
+const path = require('path');
 var app = express();
 
 // Apply middlewares
