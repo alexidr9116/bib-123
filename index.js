@@ -6,6 +6,7 @@ const Person = require("./Models/TestModel");
 const commonRoutes = require("./Routes/CommonRoutes");
 const adminRoutes = require("./Routes/AdminRoutes");
 const categoryRoutes = require("./Routes/CategoryRoutes");
+const questionRoutes = require('./Routes/QuestionRoutes');
 const path = require('path');
 var app = express();
 
@@ -29,6 +30,8 @@ app.use(bodyParser.raw());
 app.use("/api/", commonRoutes);
 app.use("/api/admin/", adminRoutes);
 app.use("/api/category/", categoryRoutes);
+app.use("/api/question/",questionRoutes);
+
 const assetFolder  = path.resolve(__dirname, './build/');
 app.use(express.static(assetFolder));
 //Run application

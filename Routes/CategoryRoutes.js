@@ -1,13 +1,9 @@
-const express = require("express");
-const auth = require("../Controllers/AuthController");
+const express = require("express"); 
 const categoryController = require("../Controllers/CategoryController");
-const subCategoryController = require("../Controllers/SubCategoryController");
-const validator = require("../Helpers/Validations/Validator");
-const {
-    imageUpload,
-    checkAndUploadImage,
-  } = require("../Helpers/FileUploader/fileuploader");
+const subCategoryController = require("../Controllers/SubCategoryController"); 
 var router = express.Router();
+
+
 router.get("/all", categoryController.getall);
 router.get("/list", categoryController.getNameList);
 router.get("/:id", categoryController.getInfo);

@@ -6,6 +6,7 @@ const path = require("path");
 const auth = require("../Controllers/AuthController");
 const categoryController = require("../Controllers/CategoryController");
 const subCategoryController = require("../Controllers/SubCategoryController");
+const questionController = require("../Controllers/QuestionController");
 const {
   imageUpload,
   checkAndUploadImage,
@@ -54,6 +55,22 @@ router.put("/category/sub/edit-with-image/:id", verifyAuth,
   subCategoryController.update
 );
 router.delete("/category/sub/delete/:id", verifyAuth,
-subCategoryController.remove
+  subCategoryController.remove
 );
+
+//------------------- questions
+
+router.post("/question/add", verifyAuth,
+  validator.reqStringValidator("title", 3),
+  validator.reqStringValidator("type", 3),
+  validator.reqBoolean("isRequired"),
+  questionController.add);
+router.put("/question/update/:id", verifyAuth, 
+  validator.reqStringValidator("title", 3),
+  validator.reqStringValidator("type", 3),
+  validator.reqBoolean("isRequired"),
+  questionController.update);
+router.delete("/question/delete/:id", verifyAuth, 
+  questionController.remove);
+
 module.exports = router;

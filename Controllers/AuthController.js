@@ -401,7 +401,8 @@ const updateProfilePhoto = async (req, res) => {
             )
             .exec();
           if (updatedData) {
-            Response.ok(res, "Profile image updated successfully.");
+            
+            Response.ok(res, "Profile image updated successfully.", {user:req.user._id, profileImage:req.file.path});
           } else {
             Response.error(res, "Error in updating user profile.");
           }
