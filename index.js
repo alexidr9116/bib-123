@@ -23,14 +23,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.raw());
 
 // Default route
-app.get("/", function (req, res) {
-  res.end("Bluelbis server is now running.");
-});
+
 
 app.use("/api/", commonRoutes);
 app.use("/api/admin/", adminRoutes);
 app.use("/api/category/", categoryRoutes);
-
+const assetFolder  = path.resolve(__dirname, './build/');
+app.use(express.static(assetFolder));
 //Run application
 app.listen("5354", () => {
   console.log("Application is running on port no. 5354");
