@@ -34,6 +34,7 @@ app.use("/api/question/",questionRoutes);
 
 const assetFolder  = path.resolve(__dirname, './build/');
 app.use(express.static(assetFolder));
+app.use("*",express.static(assetFolder))
 //Run application
 app.listen(process.env.PORT || 5354, () => {
   console.log("Application is running on port no. 5354");
